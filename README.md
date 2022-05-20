@@ -8,4 +8,4 @@ Projeto feito usando as tecnologias:
 
 Github https://github.com/pauloalissonsilva/pauloalissonsilva
 
-http://www.linkedin.com/in/pauloalisson
+linkedin http://www.linkedin.com/in/pauloalisson
