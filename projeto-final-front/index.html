@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/css/global.css">
+  <link rel="stylesheet" href="src/css/game.css">
+  <link rel="stylesheet" href="src/css/loadingStyle.css">
+  <link rel="stylesheet" href="src/css/form.css">
+  <link rel="stylesheet" href="src/css/signIn.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <title>Login</title>
+</head>
+
+<body>
+  <section class="container">
+    <div class="content">
+      <div class="animationContainer">
+        <div class="logo"></div>
+        <form id="signIn-form">
+          <h1 class="title">Faça seu login</h1>
+          <div class="fields">
+            <div class="fields-group">
+              <i class="fa-solid fa-user-astronaut"></i>
+              <input name="email" id="email" type="email" placeholder="Digite seu username ou email" required>
+              <span class="error"></span>
+            </div>
+            <div class="fields-group">
+              <i class="fa-solid fa-key"></i>
+              <input name="password" type="password" id="password" minlength="6" placeholder="Digite sua senha" required>
+              <span class="error"></span>
+            </div>
+          </div>
+          <input class="btn-singIn" value="Entrar" type="submit" />
+        </form>
+        <span class="signUp">
+          <a class="link-signUp" href="src/pages/signUp.html">Criar conta</a>
+        </span>
+      </div>
+    </div>
+    <div id="game-board"></div>
+  </section>
+  <div class="loading-page">
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+  </div>
+  <script type="module" src="src/js/singIn.js"></script>
+  <script type="module" src="src/js/gamesScripts/game.js"></script>
+</body>
+
+</html>

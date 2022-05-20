@@ -1,0 +1,28 @@
+#game-board {
+  flex: 1;
+  border: 1px solid #717070;
+  display: grid;
+  margin: 2rem 1rem;
+  grid-template-rows: repeat(21, 1fr);
+  grid-template-columns: repeat(21, 1fr);
+}
+
+@media (max-width: 720px) {
+  .container  {
+    flex-direction: column;
+  }
+  #game-board {
+    flex: none;
+    height: 100vh;
+  }
+}
+
+.snake {
+  background-color: hsl(200, 100%, 50%);
+  border: .25vmin solid #000;
+}
+
+.food {
+  background-color: hsl(0, 50%, 50%);
+  border: .25vmin solid #000;
+}

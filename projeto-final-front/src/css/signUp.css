@@ -1,0 +1,49 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+#backgroud {
+  flex: 1;
+  background: url("../img/bg-1024.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+}
+
+.animationContainer  form {
+  animation-name: animationContainer;
+  animation-duration: 3s;
+  margin-bottom: 1rem;
+}
+
+.signIn {
+  display: block;
+  color: var(--gray-100);
+  margin: 1rem 0;
+  transition: color 0.2s;
+}
+
+.signIn:hover { 
+  color: var(--gray-300);
+}
+
+@keyframes animationContainer {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

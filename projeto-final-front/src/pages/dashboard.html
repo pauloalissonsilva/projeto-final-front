@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+  <title>Dashboard</title>
+  <style>
+    ion-slides {
+      height: 100%;
+    }
+
+    ion-list {
+      height: 100%;
+    }
+
+    ion-modal {
+      --max-height: 18rem;
+    }
+  </style>
+</head>
+
+<body>
+  <ion-app>
+    <ion-menu side="start" menu-id="first" content-id="main">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-img src="../img/logo.png"></ion-img>
+            </ion-thumbnail>
+            <ion-label>Creed tech</ion-label>
+          </ion-item>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>
+            <ion-button id="new-sticky-Note">Novo lembrete</ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <div class="ion-page ion-padding ion-margin-horizontal" id="main">
+      <ion-header>
+        <ion-toolbar>
+          <div class="ion-page ion-align-items-center" style="flex-direction: row;">
+            <ion-button onclick="openMenu()">Menu</ion-button>
+            <ion-button onclick="logon()" fill="clear" shape="round">Sair</ion-button>
+            <ion-title><span id="welcome"></span></ion-title>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+
+        <ion-progress-bar type="indeterminate"></ion-progress-bar>
+        <ion-list>
+
+          <ion-slides pager="true"></ion-slides>
+
+        </ion-list>
+
+      </ion-content>
+      <ion-modal>
+        <ion-content class="ion-padding ion-margin">
+          <div class="wrap-sticky-note">
+            <ion-item>
+              <ion-label position="floating">Digite a descrição do lembrete</ion-label>
+              <ion-input id="title-sticky-note"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Digite os detalhes do lembrete</ion-label>
+              <ion-textarea id="description-sticky-note"></ion-textarea>
+            </ion-item>
+          </div>
+          <ion-button expand="full" id="create-sticky-note" class="ion-margin-top" color="success">Salvar</ion-button>
+        </ion-content>
+      </ion-modal>
+    </div>
+  </ion-app>
+
+  <script type="module">
+    import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+    window.menuController = menuController;
+  </script>
+  <script>
+    function openMenu() {
+      menuController.enable(true, 'first');
+      menuController.open('first');
+    }
+    function logon() {
+      sessionStorage.removeItem("@CreedTech:users")
+      window.location.href = "/";
+    }
+  </script>
+  <script>
+    const slides = document.querySelector('ion-slides');
+
+    slides.options = {
+      initialSlide: 1,
+      speed: 700,
+      slidesPerView: 2,
+      spaceBetween: 0,
+    }
+  </script>
+  <script>
+    const cardModal = document.querySelector('ion-modal');
+
+    function openModal() {
+      cardModal.isOpen = true
+    }
+
+    cardModal.canDismiss = async () => {
+
+      cardModal.isOpen = false
+
+      return true;
+    }
+  </script>
+  <script type="module" src="../js/createStickyNotes.js"></script>
+</body>
+
+</html>
